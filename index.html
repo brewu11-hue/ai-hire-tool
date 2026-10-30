@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Hiring Match Tool</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="header">
+        <div class="eyebrow">Hiring Intelligence</div>
+        <h1>Applicant fit score for a job description</h1>
+        <p class="subtitle">
+          Upload a candidate PDF application and compare it against the role requirements to quickly identify strong matches and gaps.
+        </p>
+      </header>
+
+      <main class="app-grid">
+        <section class="panel form-panel">
+          <div class="field">
+            <label class="label" for="jobTitle">Job title</label>
+            <input id="jobTitle" type="text" value="Senior Frontend Engineer" />
+          </div>
+
+          <div class="field">
+            <label class="label" for="jobDescription">Job description</label>
+            <textarea id="jobDescription">We are seeking a Senior Frontend Engineer to help build and scale a modern customer experience platform. The ideal candidate has strong experience in JavaScript, TypeScript, React, component architecture, performance optimization, and accessibility. You should be comfortable collaborating across design, product, and backend teams, troubleshooting production issues, and mentoring junior developers. Candidates with experience in Node.js, REST APIs, modern CSS, testing frameworks, and agile delivery will stand out. A passion for user-centric product thinking and shipping features with measurable business impact is essential.</textarea>
+          </div>
+
+          <div class="upload-zone" id="dropZone" aria-label="Upload PDF application">
+            <input id="pdfInput" type="file" accept="application/pdf" />
+            <div class="upload-copy">
+              <strong>Upload application PDF</strong>
+              <span id="fileName">No file selected yet</span>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button id="rateButton" class="primary-button" type="button">Rate application</button>
+            <div id="status" class="status" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <section class="panel result-panel">
+          <h2>Candidate rating</h2>
+
+          <div class="score-wrap">
+            <div class="score-ring" id="scoreRing">
+              <div class="score-value">
+                <strong id="scoreValue">0%</strong>
+                <span id="scoreLabel">Pending</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <label>Skill match</label>
+              <strong id="skillMatchValue">0%</strong>
+            </div>
+            <div class="stat-card">
+              <label>Experience fit</label>
+              <strong id="experienceValue">0%</strong>
+            </div>
+            <div class="stat-card">
+              <label>Role signal</label>
+              <strong id="signalValue">0%</strong>
+            </div>
+          </div>
+
+          <div class="insights">
+            <div class="insight-box">
+              <h3>Strengths</h3>
+              <ul id="strengthsList">
+                <li class="empty-state">Upload a PDF to generate strengths.</li>
+              </ul>
+            </div>
+
+            <div class="insight-box">
+              <h3>Gaps to close</h3>
+              <ul id="gapsList">
+                <li class="empty-state">Potential gaps will appear here.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="meta" id="metaText">Waiting for an application PDF.</div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
