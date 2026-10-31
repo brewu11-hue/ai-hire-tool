@@ -1,3 +1,4 @@
+Link to app : ai-hire-tool.vercel.app
 # AI Hire Tool
 
 An AI-powered Resume Rater built with **JavaScript, Node.js, Express, and Google's Gemini AI**.
