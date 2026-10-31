@@ -10,7 +10,9 @@ app.use(express.json());
 
 // Serve the frontend files from this project folder
 app.use(express.static(__dirname));
-
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 // Test endpoint
 app.get("/api/health", (req, res) => {
   res.json({
